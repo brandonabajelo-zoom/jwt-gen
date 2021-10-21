@@ -29,4 +29,4 @@ Utility script to create a Zoom JSON web token and copy it to your clipboard for
 
 `node index.js`
 
-Your Zoom JWT should now be copied to your clipboard and displayed to the terminal
+Your Zoom JWT (exp 2 hrs) should now be copied to your clipboard and displayed to the terminal. 
