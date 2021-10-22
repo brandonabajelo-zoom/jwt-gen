@@ -2,7 +2,7 @@
   "name": "token",
   "version": "1.0.0",
   "description": "generate jwt '",
-  "main": "index.js",
+  "main": "token.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "prompt": "^1.2.0"
   },
   "type": "module"
 }
