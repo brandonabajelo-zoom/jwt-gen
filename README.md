@@ -24,4 +24,5 @@ Utility script to create a Zoom JSON web token and copy it to your clipboard for
 Your Zoom JWT (exp 2 hrs) should now be copied to your clipboard and displayed to the terminal. If you enter incorrect Zoom credentials, delete your .env file and run the script again.
 
 `rm .env`
+
 `node token.js`
