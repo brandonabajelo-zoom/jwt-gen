@@ -1,5 +1,5 @@
 # jwt-gen
-Utility script to create a Zoom JSON web token and copy it to your clipboard for quick access. 
+Utility script to create a Zoom JSON web token (valid 2 hours) and copy it to your clipboard for quick access. 
 
 ## Installation
 
