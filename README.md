@@ -15,18 +15,10 @@ Utility script to create a Zoom JSON web token and copy it to your clipboard for
 
 `npm install`
 
-3.  In the root directory of the project, create a `.env` file where you will store your Zoom API_KEY and API_SECRET
-
-`touch .env`
-
-4. Provide the following keys:
-
-`API_KEY=xxxxxxx`
-
-`API_SECRET=xxxxxxxx`
+3.  Upon first run, you will be prompted to enter your Zoom API Key and API Secret and a .env file will be generated for you. All subsequent runs will read from your this file.
 
 ## Usage
 
-`node index.js`
+`node token.js`
 
 Your Zoom JWT (exp 2 hrs) should now be copied to your clipboard and displayed to the terminal. 
