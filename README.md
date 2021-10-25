@@ -15,7 +15,7 @@ Utility script to create a Zoom JSON web token (valid 2 hours) and copy it to yo
 
 `npm install`
 
-3.  Upon first run, you will be prompted to enter your Zoom API Key and API Secret and a .env file will be generated for you. All subsequent runs will read from your this file.
+3.  Upon first run, you will be prompted to enter your Zoom API Key and API Secret and a .env file will be generated for you. All subsequent runs will read from this file.
 
 ## Usage
 
