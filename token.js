@@ -6,6 +6,7 @@ import { spawn } from 'child_process';
 
 const hasEnvironmentFile = fs.existsSync('./.env');
 
+// Token exp: 2 hours
 const generateToken = (key = '', secret = '') => jwt.sign({ iss: key, exp: new Date().getTime() + 7200000 }, secret);
 
 const copyToken = token => {
@@ -41,8 +42,8 @@ if (hasEnvironmentFile) {
       if (writeError) throw writeError
       console.log('Environment file created with Zoom Credentials');
 
-      const token = generateToken(key, secret);
-      copyToken(token);
+      const jwtToken = generateToken(key, secret);
+      copyToken(jwtToken);
     });
 
   })
