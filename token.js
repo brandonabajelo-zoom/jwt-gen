@@ -4,35 +4,36 @@ import fs from 'fs';
 import prompt from 'prompt';
 import { spawn } from 'child_process';
 
-const hasEnvironmentFile = fs.existsSync('./.env');
+const hasEnvironmentFile = !!fs.existsSync('./.env');
 
-// Token exp: 2 hours
-const generateToken = (key = '', secret = '') => jwt.sign({ iss: key, exp: new Date().getTime() + 7200000 }, secret);
+const inputSchema = {
+  properties: {
+    'Zoom API Key': { required: true },
+    'Zoom API Secret': { required: true },
+  }
+};
+
+// Token expires in 1 hour
+const generateToken = (key = '', secret = '') => jwt.sign({ iss: key }, secret, { expiresIn: '1h' });
 
 const copyToken = token => {
   const cmd = spawn('pbcopy');
   cmd.stdin.write(token);
   cmd.stdin.end();
 
-  console.log(`JWT copied to clipboard: ${token}`);
-}
+  return console.log(`JWT copied to clipboard: \n${token}`);
+};
 
-if (hasEnvironmentFile) {
+const loadFromEnvironment = () => {
   env.config();
 
   const { API_KEY, API_SECRET } = process.env;
   const jwtToken = generateToken(API_KEY, API_SECRET);
 
-  copyToken(jwtToken);
+  return copyToken(jwtToken);
+};
 
-} else {
-  const inputSchema = {
-    properties: {
-      'Zoom API Key': { required: true },
-      'Zoom API Secret': { required: true },
-    }
-  };
-
+const generateEnvironment = () => {
   prompt.start();
   prompt.get(inputSchema, (err, input) => {
     const key = input['Zoom API Key'];
@@ -43,8 +44,10 @@ if (hasEnvironmentFile) {
       console.log('Environment file created with Zoom Credentials');
 
       const jwtToken = generateToken(key, secret);
-      copyToken(jwtToken);
+      return copyToken(jwtToken);
     });
 
   })
-}
+};
+
+hasEnvironmentFile ? loadFromEnvironment() : generateEnvironment();
