@@ -1,5 +1,5 @@
 # jwt-gen
-Utility script to create a Zoom JSON web token (valid 2 hours) and copy it to your clipboard for quick access. 
+Utility script to create a Zoom JSON web token (valid 1 hour) and copy it to your clipboard for quick access. 
 
 ## Installation
 
@@ -21,7 +21,7 @@ Utility script to create a Zoom JSON web token (valid 2 hours) and copy it to yo
 
 `node token.js`
 
-Your Zoom JWT (exp 2 hrs) should now be copied to your clipboard and displayed to the terminal. If you enter incorrect Zoom credentials, delete your .env file and run the script again.
+Your Zoom JWT should now be copied to your clipboard and displayed to the terminal. If you enter incorrect Zoom credentials, delete your .env file and run the script again.
 
 `rm .env`
 
